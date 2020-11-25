@@ -1,0 +1,16 @@
+<ng-container *ngIf="DetalleTarjeta">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{DetalleTarjeta.imgUrl}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{DetalleTarjeta.titulo}}</h5>
+                    <p class="card-text" style="white-space: pre-line;">{{DetalleTarjeta.cuerpo}}</p>
+                    <p class="card-text"><small class="text-muted">{{DetalleTarjeta.fecha}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

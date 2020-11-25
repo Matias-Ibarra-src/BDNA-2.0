@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="mt-5">"Resumen De La Semana"</h1>
+    <div class="row mt-5">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-12">
+            <div class="col-10 my-3 offset-1" *ngFor="let noticia of (noticias$ | async)">
+                <ng-template ngIf="getmostrar(noticia,'semana')">
+                    <app-semanal-card [semanaTarjeta]="noticia"></app-semanal-card>
+                </ng-template>
+
+            </div>
+            <!--col-->
+        </div>
+
+    </div>
+    <!--row-->
+</div>
+<!--container-->
