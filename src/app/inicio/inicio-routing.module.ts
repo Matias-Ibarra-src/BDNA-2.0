@@ -24,9 +24,7 @@ const routes: Routes = [
       {path: 'nacionales', component:  NacionalScreenComponent},
       {path: 'internacionales', component: InternacionalScreenComponent},
       {path: 'deportes', component: SportScreenComponent},
-      {path: 'tecnologia', component: TecnologiaScreenComponent},
-      {path: 'videos', loadChildren: () => import('src/app/videos/videos.module').then(m => m.VideosModule) },
-      {path: 'login', loadChildren: () => import('src/app/login/login.module').then(m => m.LoginModule) }
+      {path: 'tecnologia', component: TecnologiaScreenComponent}
     ]
   }
 ];

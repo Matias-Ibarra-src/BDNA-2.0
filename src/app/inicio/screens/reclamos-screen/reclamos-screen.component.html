@@ -1,70 +1,188 @@
-<div class="containerfluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex justify-content-center h-100">
+<ng-container>
+    <div [ngSwitch]="NumeroPerfil">
+        <div *ngSwitchCase="1">
+            <div class="containerfluid">
+                <div class="row">
+                    <div class="col-12 mt-5">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="card text-black bg-light-gray mb-3" style="max-width: 25rem;">
+                                <div class="card-header">Reclamos</div>
+                                <div class="card-body">
+                                    <form [formGroup]="FormReporte">
+                                        <div class="form-group has-feedback">
+                                            <label class="col-md-14 control-label">E-Mail</label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                </div>
+                                                <input formControlName="Email" type="email" class="form-control" placeholder="ejemplo@ejemplo.com">
+
+                                            </div>
 
 
-                <div class="card text-black bg-light-gray mb-3" style="max-width: 25rem;">
-                    <div class="card-header">Reclamos</div>
-                    <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="Select">Objetivo del contacto</label>
+                                                <select formControlName="Objetivo" class="form-control w-100" id="Objetivo">
+                                                    <option>Reclamo</option>
+                                                    <option>Opinion</option>
+                                                    <option>Consulta</option>
+                                                    <option>Sugerencia</option>
+                                                </select>
+                                            </div>
 
-                        <form>
+                                            <div class="form-group">
+                                                <label for="Textarea" id="TituloCuerpoReclamo">Cuentanos</label>
+                                                <textarea formControlName="Cuerpo" class="form-control" id="CuerpoReclamo" rows="4"></textarea>
+                                            </div>
 
-                            <div class="form-group has-feedback">
-                                <label class="col-md-14 control-label">E-Mail</label>
-                                <div class="col-md-14 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                        <input name="email" placeholder="Dirección de correo" class="form-control" type="text" value="" data-bv-field="email">
-                                    </div><i class="form-control-feedback bv-icon-input-group" data-bv-icon-for="email" style="display: none;"></i>
-                                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Ingrese su correo electronico</small><small class="help-block" data-bv-validator="emailAddress"
-                                        data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Ingrese un correo electrónico válido</small><small class="help-block" data-bv-validator="regexp" data-bv-for="email" data-bv-result="NOT_VALIDATED"
-                                        style="display: none;">El correo ingresado no es válido.</small></div>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <label class="col-md-14 control-label">Objetivo del Contacto</label>
-                                <div class="col-md-14 selectContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-menu-right"></i></span>
-                                        <select class="form-control selectpicker" id="objetivoContacto" name="objetivo" onchange="fnc_setObjetivoTema()" data-bv-field="objetivo">
-                    <option value=""> -- Seleccione -- </option>
-                    
-                        <option value="1">Reclamo
-                        </option>
-                    
-                    
-                        <option value="5">Opinion
-                        </option>
-                    
-                        <option value="3">Consulta
-                        </option>
-                    
-                        <option value="2">Sugerencia
-                        </option>
-                    
-                </select>
-                                    </div><i class="form-control-feedback bv-icon-input-group" data-bv-icon-for="objetivo" style="display: none;"></i>
-                                    <small class="help-block" data-bv-validator="notEmpty" data-bv-for="objetivo" data-bv-result="NOT_VALIDATED" style="display: none;">Seleccione un Objetivo</small></div>
-                            </div>
-                            <label class="col-md-14 control-label">Documento Adjunto (PDF o WORD No más de 3 páginas, Max. 2 Mb)</label>
-                            <div class="col-md-14 selectContainer">
-                                <input type="file" name="cw_adjunto" value="" id="cw_adjunto" class="form-control-file" title="Documento adjunto en formato PDF o WORD, no mas de tres paginas, max. 5 MB" accept=".pdf,.doc,.docx">
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-14 control-label">Mensaje</label>
-                                <div class="col-md-14 selectContainer">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <div>
+                                                <button id="btnEnviar" type="submit" class="btn btn-primary" (click)="EnviarReporte()">Enviar Reporte</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-md-14 control-label">
-                                <button id="enviar" type="submit" class="btn btn-warning">Enviar <span class="glyphicon glyphicon-send"></span></button>
-                            </div>
-
-
-                        </form>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="2">
+            <div class="containerfluid">
+                <div class="row">
+                    <div class="col-12 mt-5">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="card text-black bg-light-gray mb-3" style="max-width: 25rem;">
+                                <div class="card-header">Reclamos</div>
+                                <div class="card-body">
+                                    <form [formGroup]="FormReporte">
+                                        <div class="form-group has-feedback">
+                                            <h4>Cuentanos tu experiencia {{usuario.nick}}</h4>
+                                            <label class="col-md-14 control-label">E-Mail: {{usuario.Email}}</label>
 
+                                            <div class="form-group">
+                                                <label for="Select">Objetivo del contacto</label>
+                                                <select formControlName="Objetivo" class="form-control w-100" id="Objetivo">
+                                                    <option>Reclamo</option>
+                                                    <option>Opinion</option>
+                                                    <option>Consulta</option>
+                                                    <option>Sugerencia</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Textarea" id="TituloCuerpoReclamo">Cuentanos</label>
+                                                <textarea formControlName="Cuerpo" class="form-control" id="CuerpoReclamo" rows="4"></textarea>
+                                            </div>
+
+                                            <div>
+                                                <button id="btnEnviar" type="submit" class="btn btn-primary" (click)="EnviarReporte()">Enviar Reporte</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="3">
+            <div class="containerfluid">
+                <div class="row">
+                    <div class="col-12 mt-5">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="card text-black bg-light-gray mb-3" style="max-width: 25rem;">
+                                <div class="card-header">Reclamos</div>
+                                <div class="card-body">
+                                    <form [formGroup]="FormReporte">
+                                        <div class="form-group has-feedback">
+                                            <label class="col-md-14 control-label">E-Mail</label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                </div>
+                                                <input formControlName="Email" type="email" class="form-control" placeholder="ejemplo@ejemplo.com">
+
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="Select">Objetivo del contacto</label>
+                                                <select formControlName="Objetivo" class="form-control w-100" id="Objetivo">
+                                                    <option>Reclamo</option>
+                                                    <option>Opinion</option>
+                                                    <option>Consulta</option>
+                                                    <option>Sugerencia</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Textarea" id="TituloCuerpoReclamo">Cuentanos</label>
+                                                <textarea formControlName="Cuerpo" class="form-control" id="CuerpoReclamo" rows="4"></textarea>
+                                            </div>
+
+                                            <div>
+                                                <button id="btnEnviar" type="submit" class="btn btn-primary" (click)="EnviarReporte()">Enviar Reporte</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchDefault>
+            <div class="containerfluid">
+                <div class="row">
+                    <div class="col-12 mt-5">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="card text-black bg-light-gray mb-3" style="max-width: 25rem;">
+                                <div class="card-header">Reclamos</div>
+                                <div class="card-body">
+                                    <form [formGroup]="FormReporte">
+                                        <div class="form-group has-feedback">
+                                            <label class="col-md-14 control-label">E-Mail</label>
+
+                                            <div class="input-group form-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                </div>
+                                                <input formControlName="Email" type="email" class="form-control" placeholder="ejemplo@ejemplo.com">
+
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="Select">Objetivo del contacto</label>
+                                                <select formControlName="Objetivo" class="form-control w-100" id="Objetivo">
+                                                    <option>Reclamo</option>
+                                                    <option>Opinion</option>
+                                                    <option>Consulta</option>
+                                                    <option>Sugerencia</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Textarea" id="TituloCuerpoReclamo">Cuentanos</label>
+                                                <textarea formControlName="Cuerpo" class="form-control" id="CuerpoReclamo" rows="4"></textarea>
+                                            </div>
+
+                                            <div>
+                                                <button id="btnEnviar" type="submit" class="btn btn-primary" (click)="EnviarReporte()">Enviar Reporte</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</ng-container>

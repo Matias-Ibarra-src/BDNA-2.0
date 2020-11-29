@@ -10,10 +10,7 @@ const routes: Routes = [
     component: LoginComponent,
     children: [
       {path: '', component: LoginScreenComponent},
-      {path: 'registro', component: RegisterScreenComponent},
-      {path: 'Admin',  loadChildren: () => import('src/app/admin/admin.module').then(m => m.AdminModule)},
-      {path: 'Usuario', loadChildren: () => import('src/app/usuario/usuario.module').then(m => m.UsuarioModule)},
-      {path: 'Periodista', loadChildren: () => import('src/app/periodista/periodista.module').then(m => m.PeriodistaModule) }
+      {path: 'registro', component: RegisterScreenComponent}
     ]
   }
 ];

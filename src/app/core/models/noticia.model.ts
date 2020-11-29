@@ -7,8 +7,9 @@ export interface Noticia{
   cuerpo: string;
   fecha: Date;
   categoria: string;
-  mostraren: string;
+  mostraren: number;
   autor?: string;
   estado?: string;
   visitas?: number;
+  privada: boolean;
 }

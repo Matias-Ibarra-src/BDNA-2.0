@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Noticia } from 'src/app/core/models/noticia.model';
+import { Usuario } from 'src/app/core/models/usuario.model';
 import { NoticiasProviderService } from '../../../core/providers/noticias/noticias-provider.service';
 
 @Component({
@@ -11,10 +12,17 @@ import { NoticiasProviderService } from '../../../core/providers/noticias/notici
 export class InicioScreenComponent implements OnInit {
 
   public noticias$: Observable<Noticia[]>;
+  public usuario: Usuario;
+  public flag: boolean;
+
   constructor(
     private noticiaprovider: NoticiasProviderService
   ){
+    this.flag = true;
     this.noticias$ = this.GetAllNoticias();
+    if (sessionStorage.getItem('usuario')){
+      this.usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    }
   }
 
   ngOnInit(): void {

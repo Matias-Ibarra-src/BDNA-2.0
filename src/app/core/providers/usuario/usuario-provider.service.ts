@@ -11,7 +11,7 @@ export class UsuarioProviderService {
   constructor(private httpservice: HttpService) { }
 
     // tslint:disable-next-line: typedef
-    public addUsuario(usuario: any): Observable<Usuario>{
+    public addUsuario(usuario: Partial<Usuario>){
       return this.httpservice.post<Usuario>('/user/add', usuario);
     }
 

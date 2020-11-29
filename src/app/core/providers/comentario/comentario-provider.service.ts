@@ -19,4 +19,9 @@ export class ComentarioProviderService {
   public GetAllComentarios(): Observable<Comentario[]>{
     return this.httpservice.get<Comentario[]>('/comentario/all');
   }
+
+  // tslint:disable-next-line: typedef
+  public deleteComentario(id: string){
+    return this.httpservice.delete<Comentario>('/comentario/delete/' + id);
+  }
 }

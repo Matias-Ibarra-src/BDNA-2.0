@@ -22,7 +22,7 @@ export class NoticiasProviderService {
 
   // tslint:disable-next-line: typedef
   public deleteNoticia(id: string){
-    return this.httpservice.delete<Noticia>('/noticia/delete/:' + id);
+    return this.httpservice.delete<Noticia>('/noticia/delete/' + id);
   }
 
   // tslint:disable-next-line: typedef

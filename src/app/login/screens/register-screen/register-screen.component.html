@@ -8,30 +8,30 @@
 
                     </div>
                     <div class="card-body">
-                        <form formGroup>
+                        <form [formGroup]="formRegistro">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                                <input formControlName="nick" type="text" class="form-control" placeholder="Nombre de Usuario">
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Nombre">
+                                <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Apellido">
+                                <input formControlName="apellido" type="text" class="form-control" placeholder="Apellido">
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="ejemplo@ejemplo.com">
+                                <input formControlName="Email" type="email" class="form-control" placeholder="ejemplo@ejemplo.com">
 
                             </div>
                             <!--Email-->
@@ -39,22 +39,21 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Contraseña">
+                                <input formControlName="contraseña" type="password" class="form-control" placeholder="Contraseña">
                             </div>
                             <!--Contraseña-->
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Repita su Contraseña">
+                                <input formControlName="confirmar" type="password" class="form-control" placeholder="Repita su Contraseña">
                             </div>
                             <!--Repetir Contraseña-->
                             <div class="row align-items-center remember">
-                                <input type="checkbox" id="es_periodista">Es Usted Periodista?
+                                <input formControlName="esperio" type="checkbox" id="es_periodista">Es Usted Periodista?
                             </div>
-                            <div class="form-group">
-                                <!--<button id="btnRegistro" class="btn float-right login_btn">Registrarse</button>-->
-                                <button type="submit" id="btnRegistro" class="btn btn-primary float-right">Registrarse</button>
+                            <div class="form-group" *ngIf="(usuarios$ | async); let usuarios">
+                                <button type="submit" id="btnRegistro" class="btn btn-primary float-right" (click)="Registrarse(usuarios)">Registrarse</button>
                             </div>
                             <!--Registrar-->
                             <label>Nota: si es usted periodista un Administrador se contactará con usted para validad su identidad y otorgarle los permisos correpondientes</label>

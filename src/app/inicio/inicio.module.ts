@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
@@ -22,6 +23,8 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { NoticiasProviderService } from '../core/providers/noticias/noticias-provider.service';
 import { ReclamosScreenComponent } from './screens/reclamos-screen/reclamos-screen.component';
 import { ListaComentariosComponent } from './components/lista-comentarios/lista-comentarios.component';
+import { ComentariosFormComponent } from './components/comentarios-form/comentarios-form.component';
+import { ListaRelacionadasComponent } from './components/lista-relacionadas/lista-relacionadas.component';
 
 
 @NgModule({
@@ -45,12 +48,15 @@ import { ListaComentariosComponent } from './components/lista-comentarios/lista-
     SmallCardComponent,
     WeatherComponent,
     ReclamosScreenComponent,
-    ListaComentariosComponent],
+    ListaComentariosComponent,
+    ComentariosFormComponent,
+    ListaRelacionadasComponent],
   imports: [
     CommonModule,
-    InicioRoutingModule
+    InicioRoutingModule,
+    ReactiveFormsModule
   ],
-  providers:[
+  providers: [
     NoticiasProviderService
   ]
 })

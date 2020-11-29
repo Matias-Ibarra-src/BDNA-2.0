@@ -15,24 +15,29 @@ export class NavegacionComponent implements OnInit {
     if (sessionStorage.getItem('usuario')){
       this.usuario = JSON.parse(sessionStorage.getItem('usuario'));
       this.perfil = this.usuario.rol;
+    }
+
+  }
+
+  ngOnInit(): void {
+    if (sessionStorage.getItem('usuario')){
       this.NumeroPerfil = this.ParseNumber(this.perfil);
     }
   }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line: typedef
+  CambiarFondo(){
     const btnSwitch = document.querySelector('#switch');
 
-    btnSwitch.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      btnSwitch.classList.toggle('active');
+    document.body.classList.toggle('dark');
+    btnSwitch.classList.toggle('active');
 
-      // Guardamos el modo en localstorage.
-      if (document.body.classList.contains('dark')){
-        localStorage.setItem('dark-mode', 'true');
-      } else {
-        localStorage.setItem('dark-mode', 'false');
-      }
-    });
+    // Guardamos el modo en localstorage.
+    if (document.body.classList.contains('dark')){
+      localStorage.setItem('dark-mode', 'true');
+    } else {
+      localStorage.setItem('dark-mode', 'false');
+    }
 
     // Obtenemos el modo actual.
     if (localStorage.getItem('dark-mode') === 'true'){
@@ -53,7 +58,6 @@ export class NavegacionComponent implements OnInit {
       }
       case('Periodista'): {
         return 2;
-        break;
       }
       case('Admin'): {
         return 3;
