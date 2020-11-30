@@ -22,7 +22,7 @@
             <div>
                 <h5 class="my-4">Comentarios</h5>
 
-                <div *ngIf="usuario" class="col mb-5 mt-5">
+                <div *ngIf="usuario" class="col mb-5 mt-5 col-xs-12 col-sm-6 col-md-8 col-lg-3">
                     <div *ngIf="(noticia$ | async); let noti">
                         <app-comentarios-form [user]="usuario" [idAsociado]="noti._id"></app-comentarios-form>
                     </div>
